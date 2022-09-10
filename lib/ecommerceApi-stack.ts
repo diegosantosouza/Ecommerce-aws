@@ -39,7 +39,7 @@ export class ECommerceApiStack extends cdk.Stack {
     productsResources.addMethod('GET', productsFetchIntegration)
 
     // GET /products/{id}
-    const productsIdResources = api.root.addResource('{id}')
+    const productsIdResources = productsResources.addResource('{id}')
     productsIdResources.addMethod('GET', productsFetchIntegration)
 
     const productsAdminIntegration = new apigateway.LambdaIntegration(props.productsAdminHandler)
