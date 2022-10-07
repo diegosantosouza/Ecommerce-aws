@@ -6,7 +6,7 @@ import { ProductEvent, ProductEventType } from "/opt/nodejs/productEventsLayer";
 
 AWSXRay.captureAWS(require("aws-sdk"));
 
-const productsDdb = process.env.PRODUCTS_DB!
+const productsDdb = process.env.PRODUCTS_DDB!
 const ddbClient = new DynamoDB.DocumentClient()
 const lambdaClient = new Lambda()
 const productEventsFunctionName = process.env.PRODUCT_EVENT_FUNCTION_NAME!

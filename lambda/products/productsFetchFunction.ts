@@ -5,7 +5,7 @@ import * as AWSXRay from "aws-xray-sdk";
 
 AWSXRay.captureAWS(require("aws-sdk"));
 
-const productsDdb = process.env.PRODUCTS_DB!
+const productsDdb = process.env.PRODUCTS_DDB!
 const ddbClient = new DynamoDB.DocumentClient()
 
 const productRepository = new ProductRepository(ddbClient, productsDdb)

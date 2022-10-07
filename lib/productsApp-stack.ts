@@ -48,7 +48,7 @@ export class ProductsAppStack extends cdk.Stack {
         sourceMap: false,
       },
       environment: {
-        EVENTS_DB: props.eventsDdb.tableName
+        EVENTS_DDB: props.eventsDdb.tableName
       },
       layers: [productEventsLayer],
       tracing: lambda.Tracing.ACTIVE,
@@ -68,7 +68,7 @@ export class ProductsAppStack extends cdk.Stack {
         sourceMap: false,
       },
       environment: {
-        PRODUCTS_DB: this.productsDb.tableName
+        PRODUCTS_DDB: this.productsDb.tableName
       },
       layers: [productsLayer],
       tracing: lambda.Tracing.ACTIVE,
@@ -88,7 +88,7 @@ export class ProductsAppStack extends cdk.Stack {
         sourceMap: false,
       },
       environment: {
-        PRODUCTS_DB: this.productsDb.tableName,
+        PRODUCTS_DDB: this.productsDb.tableName,
         PRODUCT_EVENT_FUNCTION_NAME: productsEventsHandler.functionName
       },
       layers: [productsLayer, productEventsLayer],
