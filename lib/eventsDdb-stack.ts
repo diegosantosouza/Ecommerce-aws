@@ -2,12 +2,12 @@ import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
 
-export class EventsDbdStack extends cdk.Stack {
+export class EventsDdbStack extends cdk.Stack {
   readonly table: dynamodb.Table
 
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
-    this.table = new dynamodb.Table(this, "EventsDbd", {
+    this.table = new dynamodb.Table(this, "EventsDdb", {
       tableName: "events",
       removalPolicy: cdk.RemovalPolicy.DESTROY,
       partitionKey: {
