@@ -5,6 +5,9 @@ import { ProductsAppStack } from '../lib/productsApp-stack';
 import { ECommerceApiStack } from '../lib/ecommerceApi-stack';
 import { ProductsAppLayersStack } from '../lib/productsAppLayers-stack';
 import { EventsDdbStack } from '../lib/eventsDdb-stack'
+import { OrderAppLayersStack } from 'lib/orderAppLayers-stack';
+import { OrdersAppStack } from '../lib/ordersApp-stack';
+
 const app = new cdk.App();
 
 const env: cdk.Environment = {
@@ -36,9 +39,23 @@ const productsAppStack = new ProductsAppStack(app, 'ProductsApp', {
 productsAppStack.addDependency(productsAppLayersStack)
 productsAppStack.addDependency(eventsDdbStack)
 
+const orderAppLayersStack = new OrderAppLayersStack(app, "OrderAppLayers", {
+  tags: tags,
+  env: env
+})
+
+const ordersAppStack = new OrdersAppStack(app, "OrdersApp", {
+  tags: tags,
+  env: env,
+  productsDdb: productsAppStack.productsDb
+})
+ordersAppStack.addDependency(productsAppStack)
+ordersAppStack.addDependency(orderAppLayersStack)
+
 const eCommerceApiStack = new ECommerceApiStack(app, 'ECommerceApi', {
   productsFetchHandler: productsAppStack.productsFetchHandler,
   productsAdminHandler: productsAppStack.productsAdminHandler,
+  ordersHandler: ordersAppStack.ordersHandler,
   tags: tags,
   env: env
 })
