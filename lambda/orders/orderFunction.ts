@@ -1,5 +1,5 @@
 import { DynamoDB } from "aws-sdk"
-import { OrderRepository } from "/opt/nodejs/ordersLayer"
+import { OrderRepository } from "./layers/ordersLayer/nodejs/ordersRepository"
 import { ProductRepository } from "/opt/nodejs/productsLayer"
 import * as AWSXRay from "aws-xray-sdk";
 import { APIGatewayProxyEvent, APIGatewayProxyResult, Context } from "aws-lambda";
