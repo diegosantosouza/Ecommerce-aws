@@ -22,7 +22,10 @@ export async function handler(event: APIGatewayProxyEvent, context: Context): Pr
   console.log(`API Gateway RequestId: ${apiRequestId} - LambdaRequestId : ${lambdaRequestId}`);
 
   if (method === 'GET') {
-
+    if (event.queryStringParameters) {
+      const email = event.queryStringParameters!.email
+      const orderId = event.queryStringParameters!.orderId      
+    }
   }
   if (method === 'POST') {
     console.log('POST /orders')
@@ -34,7 +37,7 @@ export async function handler(event: APIGatewayProxyEvent, context: Context): Pr
     console.log('DELETE /orders')
     const email = event.queryStringParameters!.email
     const orderId = event.queryStringParameters!.orderId
-  } 
+  }
   return {
     statusCode: 400,
     body: 'Bad Request'
