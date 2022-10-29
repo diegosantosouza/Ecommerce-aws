@@ -8,10 +8,6 @@ jobs:
   aws_cdk:
     runs-on: ubuntu-latest
     steps:
-
-      - name: yarn install
-        run: yarn install
-
       - name: cdk diff
         uses: youyo/aws-cdk-github-actions@v2
         with:
