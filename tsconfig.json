@@ -31,6 +31,24 @@
       ],
       "/opt/nodejs/ordersApiLayer": [
         "lambda/orders/layers/ordersApiLayer/nodejs/orderApi"
+      ],
+      "/opt/nodejs/orderEventsLayer": [
+        "lambda/orders/layers/orderEventsLayer/nodejs/orderEvent"
+      ],
+      "/opt/nodejs/orderEventsRepositoryLayer": [
+        "lambda/orders/layers/orderEventsRepositoryLayer/nodejs/orderEventRepository"
+      ],
+      "/opt/nodejs/invoiceTransaction": [
+        "lambda/invoices/layers/invoiceTransaction/nodejs/invoiceTransaction"
+      ],
+      "/opt/nodejs/invoiceWSConnection": [
+        "lambda/invoices/layers/invoiceWSConnection/nodejs/invoiceWSConnection"
+      ],
+      "/opt/nodejs/invoiceRepository": [
+        "lambda/invoices/layers/invoiceRepository/nodejs/invoiceRepository"
+      ],
+      "/opt/nodejs/authUserInfo": [
+        "lambda/auth/layers/authUserInfo/nodejs/authUserInfo"
       ]
     }
   },
